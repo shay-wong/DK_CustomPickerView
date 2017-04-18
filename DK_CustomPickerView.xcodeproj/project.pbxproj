@@ -1,0 +1,458 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1834B5261EA608B10067259C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1834B5251EA608B10067259C /* main.m */; };
+		1834B5291EA608B10067259C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1834B5281EA608B10067259C /* AppDelegate.m */; };
+		1834B52C1EA608B10067259C /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1834B52B1EA608B10067259C /* ViewController.m */; };
+		1834B52F1EA608B10067259C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1834B52D1EA608B10067259C /* Main.storyboard */; };
+		1834B5321EA608B20067259C /* DK_CustomPickerView.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1834B5301EA608B20067259C /* DK_CustomPickerView.xcdatamodeld */; };
+		1834B5341EA608B20067259C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1834B5331EA608B20067259C /* Assets.xcassets */; };
+		1834B5371EA608B20067259C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1834B5351EA608B20067259C /* LaunchScreen.storyboard */; };
+		1834B55C1EA608C60067259C /* AddressFMDBManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1834B5401EA608C60067259C /* AddressFMDBManager.m */; };
+		1834B55D1EA608C60067259C /* area.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1834B5411EA608C60067259C /* area.plist */; };
+		1834B55E1EA608C60067259C /* CityAddressModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1834B5431EA608C60067259C /* CityAddressModel.m */; };
+		1834B55F1EA608C60067259C /* CustomCityPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1834B5451EA608C60067259C /* CustomCityPickerView.m */; };
+		1834B5601EA608C60067259C /* CustomLevelOnePickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1834B5471EA608C60067259C /* CustomLevelOnePickerView.m */; };
+		1834B5611EA608C60067259C /* DistrictModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1834B5491EA608C60067259C /* DistrictModel.m */; };
+		1834B5621EA608C60067259C /* AddressModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1834B54D1EA608C60067259C /* AddressModel.m */; };
+		1834B5631EA608C60067259C /* cityData.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 1834B54E1EA608C60067259C /* cityData.sqlite */; };
+		1834B5641EA608C60067259C /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 1834B5501EA608C60067259C /* FMDatabase.m */; };
+		1834B5651EA608C60067259C /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 1834B5521EA608C60067259C /* FMDatabaseAdditions.m */; };
+		1834B5661EA608C60067259C /* FMDatabasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = 1834B5541EA608C60067259C /* FMDatabasePool.m */; };
+		1834B5671EA608C60067259C /* FMDatabaseQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 1834B5561EA608C60067259C /* FMDatabaseQueue.m */; };
+		1834B5681EA608C60067259C /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 1834B5591EA608C60067259C /* FMResultSet.m */; };
+		1834B5691EA608C60067259C /* ProvinceAddressModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1834B55B1EA608C60067259C /* ProvinceAddressModel.m */; };
+		1834B56D1EA609320067259C /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 1834B56C1EA609320067259C /* libsqlite3.tbd */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		1834B5211EA608B00067259C /* DK_CustomPickerView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DK_CustomPickerView.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1834B5251EA608B10067259C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		1834B5271EA608B10067259C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		1834B5281EA608B10067259C /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		1834B52A1EA608B10067259C /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		1834B52B1EA608B10067259C /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		1834B52E1EA608B10067259C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		1834B5311EA608B20067259C /* DK_CustomPickerView.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DK_CustomPickerView.xcdatamodel; sourceTree = "<group>"; };
+		1834B5331EA608B20067259C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		1834B5361EA608B20067259C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		1834B5381EA608B20067259C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1834B53F1EA608C60067259C /* AddressFMDBManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddressFMDBManager.h; sourceTree = "<group>"; };
+		1834B5401EA608C60067259C /* AddressFMDBManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddressFMDBManager.m; sourceTree = "<group>"; };
+		1834B5411EA608C60067259C /* area.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = area.plist; sourceTree = "<group>"; };
+		1834B5421EA608C60067259C /* CityAddressModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CityAddressModel.h; sourceTree = "<group>"; };
+		1834B5431EA608C60067259C /* CityAddressModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CityAddressModel.m; sourceTree = "<group>"; };
+		1834B5441EA608C60067259C /* CustomCityPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomCityPickerView.h; sourceTree = "<group>"; };
+		1834B5451EA608C60067259C /* CustomCityPickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomCityPickerView.m; sourceTree = "<group>"; };
+		1834B5461EA608C60067259C /* CustomLevelOnePickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomLevelOnePickerView.h; sourceTree = "<group>"; };
+		1834B5471EA608C60067259C /* CustomLevelOnePickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomLevelOnePickerView.m; sourceTree = "<group>"; };
+		1834B5481EA608C60067259C /* DistrictModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DistrictModel.h; sourceTree = "<group>"; };
+		1834B5491EA608C60067259C /* DistrictModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DistrictModel.m; sourceTree = "<group>"; };
+		1834B54C1EA608C60067259C /* AddressModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddressModel.h; sourceTree = "<group>"; };
+		1834B54D1EA608C60067259C /* AddressModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddressModel.m; sourceTree = "<group>"; };
+		1834B54E1EA608C60067259C /* cityData.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = cityData.sqlite; sourceTree = "<group>"; };
+		1834B54F1EA608C60067259C /* FMDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabase.h; sourceTree = "<group>"; };
+		1834B5501EA608C60067259C /* FMDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabase.m; sourceTree = "<group>"; };
+		1834B5511EA608C60067259C /* FMDatabaseAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabaseAdditions.h; sourceTree = "<group>"; };
+		1834B5521EA608C60067259C /* FMDatabaseAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabaseAdditions.m; sourceTree = "<group>"; };
+		1834B5531EA608C60067259C /* FMDatabasePool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabasePool.h; sourceTree = "<group>"; };
+		1834B5541EA608C60067259C /* FMDatabasePool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabasePool.m; sourceTree = "<group>"; };
+		1834B5551EA608C60067259C /* FMDatabaseQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabaseQueue.h; sourceTree = "<group>"; };
+		1834B5561EA608C60067259C /* FMDatabaseQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabaseQueue.m; sourceTree = "<group>"; };
+		1834B5571EA608C60067259C /* FMDB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDB.h; sourceTree = "<group>"; };
+		1834B5581EA608C60067259C /* FMResultSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMResultSet.h; sourceTree = "<group>"; };
+		1834B5591EA608C60067259C /* FMResultSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMResultSet.m; sourceTree = "<group>"; };
+		1834B55A1EA608C60067259C /* ProvinceAddressModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProvinceAddressModel.h; sourceTree = "<group>"; };
+		1834B55B1EA608C60067259C /* ProvinceAddressModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProvinceAddressModel.m; sourceTree = "<group>"; };
+		1834B56A1EA608D50067259C /* Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Header.h; sourceTree = "<group>"; };
+		1834B56C1EA609320067259C /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		1834B51E1EA608B00067259C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1834B56D1EA609320067259C /* libsqlite3.tbd in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1834B5181EA608B00067259C = {
+			isa = PBXGroup;
+			children = (
+				1834B5231EA608B10067259C /* DK_CustomPickerView */,
+				1834B5221EA608B10067259C /* Products */,
+				1834B56B1EA609320067259C /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		1834B5221EA608B10067259C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1834B5211EA608B00067259C /* DK_CustomPickerView.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		1834B5231EA608B10067259C /* DK_CustomPickerView */ = {
+			isa = PBXGroup;
+			children = (
+				1834B53E1EA608C60067259C /* CustomPickerView */,
+				1834B5271EA608B10067259C /* AppDelegate.h */,
+				1834B5281EA608B10067259C /* AppDelegate.m */,
+				1834B52A1EA608B10067259C /* ViewController.h */,
+				1834B52B1EA608B10067259C /* ViewController.m */,
+				1834B56A1EA608D50067259C /* Header.h */,
+				1834B52D1EA608B10067259C /* Main.storyboard */,
+				1834B5331EA608B20067259C /* Assets.xcassets */,
+				1834B5351EA608B20067259C /* LaunchScreen.storyboard */,
+				1834B5381EA608B20067259C /* Info.plist */,
+				1834B5301EA608B20067259C /* DK_CustomPickerView.xcdatamodeld */,
+				1834B5241EA608B10067259C /* Supporting Files */,
+			);
+			path = DK_CustomPickerView;
+			sourceTree = "<group>";
+		};
+		1834B5241EA608B10067259C /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				1834B5251EA608B10067259C /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		1834B53E1EA608C60067259C /* CustomPickerView */ = {
+			isa = PBXGroup;
+			children = (
+				1834B54A1EA608C60067259C /* FMDB */,
+				1834B53F1EA608C60067259C /* AddressFMDBManager.h */,
+				1834B5401EA608C60067259C /* AddressFMDBManager.m */,
+				1834B5411EA608C60067259C /* area.plist */,
+				1834B5421EA608C60067259C /* CityAddressModel.h */,
+				1834B5431EA608C60067259C /* CityAddressModel.m */,
+				1834B5481EA608C60067259C /* DistrictModel.h */,
+				1834B5491EA608C60067259C /* DistrictModel.m */,
+				1834B55A1EA608C60067259C /* ProvinceAddressModel.h */,
+				1834B55B1EA608C60067259C /* ProvinceAddressModel.m */,
+				1834B5441EA608C60067259C /* CustomCityPickerView.h */,
+				1834B5451EA608C60067259C /* CustomCityPickerView.m */,
+				1834B5461EA608C60067259C /* CustomLevelOnePickerView.h */,
+				1834B5471EA608C60067259C /* CustomLevelOnePickerView.m */,
+			);
+			path = CustomPickerView;
+			sourceTree = "<group>";
+		};
+		1834B54A1EA608C60067259C /* FMDB */ = {
+			isa = PBXGroup;
+			children = (
+				1834B54B1EA608C60067259C /* AddressModel */,
+				1834B54E1EA608C60067259C /* cityData.sqlite */,
+				1834B54F1EA608C60067259C /* FMDatabase.h */,
+				1834B5501EA608C60067259C /* FMDatabase.m */,
+				1834B5511EA608C60067259C /* FMDatabaseAdditions.h */,
+				1834B5521EA608C60067259C /* FMDatabaseAdditions.m */,
+				1834B5531EA608C60067259C /* FMDatabasePool.h */,
+				1834B5541EA608C60067259C /* FMDatabasePool.m */,
+				1834B5551EA608C60067259C /* FMDatabaseQueue.h */,
+				1834B5561EA608C60067259C /* FMDatabaseQueue.m */,
+				1834B5571EA608C60067259C /* FMDB.h */,
+				1834B5581EA608C60067259C /* FMResultSet.h */,
+				1834B5591EA608C60067259C /* FMResultSet.m */,
+			);
+			path = FMDB;
+			sourceTree = "<group>";
+		};
+		1834B54B1EA608C60067259C /* AddressModel */ = {
+			isa = PBXGroup;
+			children = (
+				1834B54C1EA608C60067259C /* AddressModel.h */,
+				1834B54D1EA608C60067259C /* AddressModel.m */,
+			);
+			path = AddressModel;
+			sourceTree = "<group>";
+		};
+		1834B56B1EA609320067259C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1834B56C1EA609320067259C /* libsqlite3.tbd */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		1834B5201EA608B00067259C /* DK_CustomPickerView */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1834B53B1EA608B20067259C /* Build configuration list for PBXNativeTarget "DK_CustomPickerView" */;
+			buildPhases = (
+				1834B51D1EA608B00067259C /* Sources */,
+				1834B51E1EA608B00067259C /* Frameworks */,
+				1834B51F1EA608B00067259C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = DK_CustomPickerView;
+			productName = DK_CustomPickerView;
+			productReference = 1834B5211EA608B00067259C /* DK_CustomPickerView.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		1834B5191EA608B00067259C /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0820;
+				ORGANIZATIONNAME = DeamonKing;
+				TargetAttributes = {
+					1834B5201EA608B00067259C = {
+						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = J9BJ3HH2JU;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 1834B51C1EA608B00067259C /* Build configuration list for PBXProject "DK_CustomPickerView" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 1834B5181EA608B00067259C;
+			productRefGroup = 1834B5221EA608B10067259C /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				1834B5201EA608B00067259C /* DK_CustomPickerView */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		1834B51F1EA608B00067259C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1834B5371EA608B20067259C /* LaunchScreen.storyboard in Resources */,
+				1834B55D1EA608C60067259C /* area.plist in Resources */,
+				1834B5341EA608B20067259C /* Assets.xcassets in Resources */,
+				1834B5631EA608C60067259C /* cityData.sqlite in Resources */,
+				1834B52F1EA608B10067259C /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		1834B51D1EA608B00067259C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1834B5621EA608C60067259C /* AddressModel.m in Sources */,
+				1834B55C1EA608C60067259C /* AddressFMDBManager.m in Sources */,
+				1834B5661EA608C60067259C /* FMDatabasePool.m in Sources */,
+				1834B5671EA608C60067259C /* FMDatabaseQueue.m in Sources */,
+				1834B55E1EA608C60067259C /* CityAddressModel.m in Sources */,
+				1834B5321EA608B20067259C /* DK_CustomPickerView.xcdatamodeld in Sources */,
+				1834B5611EA608C60067259C /* DistrictModel.m in Sources */,
+				1834B5601EA608C60067259C /* CustomLevelOnePickerView.m in Sources */,
+				1834B52C1EA608B10067259C /* ViewController.m in Sources */,
+				1834B5681EA608C60067259C /* FMResultSet.m in Sources */,
+				1834B5291EA608B10067259C /* AppDelegate.m in Sources */,
+				1834B55F1EA608C60067259C /* CustomCityPickerView.m in Sources */,
+				1834B5641EA608C60067259C /* FMDatabase.m in Sources */,
+				1834B5261EA608B10067259C /* main.m in Sources */,
+				1834B5691EA608C60067259C /* ProvinceAddressModel.m in Sources */,
+				1834B5651EA608C60067259C /* FMDatabaseAdditions.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		1834B52D1EA608B10067259C /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1834B52E1EA608B10067259C /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		1834B5351EA608B20067259C /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1834B5361EA608B20067259C /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		1834B5391EA608B20067259C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		1834B53A1EA608B20067259C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		1834B53C1EA608B20067259C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = J9BJ3HH2JU;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/DK_CustomPickerView/Header.h";
+				INFOPLIST_FILE = DK_CustomPickerView/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.DeamonKing.www.DK-CustomPickerView";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		1834B53D1EA608B20067259C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = J9BJ3HH2JU;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/DK_CustomPickerView/Header.h";
+				INFOPLIST_FILE = DK_CustomPickerView/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.DeamonKing.www.DK-CustomPickerView";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1834B51C1EA608B00067259C /* Build configuration list for PBXProject "DK_CustomPickerView" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1834B5391EA608B20067259C /* Debug */,
+				1834B53A1EA608B20067259C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1834B53B1EA608B20067259C /* Build configuration list for PBXNativeTarget "DK_CustomPickerView" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1834B53C1EA608B20067259C /* Debug */,
+				1834B53D1EA608B20067259C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		1834B5301EA608B20067259C /* DK_CustomPickerView.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				1834B5311EA608B20067259C /* DK_CustomPickerView.xcdatamodel */,
+			);
+			currentVersion = 1834B5311EA608B20067259C /* DK_CustomPickerView.xcdatamodel */;
+			path = DK_CustomPickerView.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 1834B5191EA608B00067259C /* Project object */;
+}
