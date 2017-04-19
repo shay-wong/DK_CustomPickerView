@@ -1,9 +1,9 @@
 //
 //  AddressFMDBManager.h
-//  picker
+//  DK_CustomPickerView
 //
-//  Created by 王帅 on 14/11/21.
-//  Copyright (c) 2014年 Sylar. All rights reserved.
+//  Created by apple on 17/4/18.
+//  Copyright © 2017年 DeamonKing. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
@@ -16,7 +16,7 @@
 @property (nonatomic,strong)NSMutableArray *cityArray;    //存放市的数组
 @property (nonatomic,strong)NSMutableArray *districtArray;//存放区的数组
 
-@property (nonatomic,assign)NSInteger *cityId;//记录城市的id
+@property (nonatomic,assign)NSInteger cityId;//记录城市的id
 
 
 + (AddressFMDBManager *)sharedAddressFMDBManager;

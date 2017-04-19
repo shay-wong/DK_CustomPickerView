@@ -1,9 +1,9 @@
 //
 //  AddressFMDBManager.m
-//  picker
+//  DK_CustomPickerView
 //
-//  Created by 王帅 on 14/11/21.
-//  Copyright (c) 2014年 Sylar. All rights reserved.
+//  Created by apple on 17/4/18.
+//  Copyright © 2017年 DeamonKing. All rights reserved.
 //
 
 #import "AddressFMDBManager.h"
@@ -120,7 +120,7 @@
     //为数据库设置缓存,提高查询效率
     [_cityData setShouldCacheStatements:YES];
     //定义一个结果集,存放查询的数据
-    FMResultSet *rs=[_cityData executeQuery:@"select * from district where city_id=?",[NSNumber numberWithInt:cityId]];
+    FMResultSet *rs=[_cityData executeQuery:@"select * from district where city_id=?",[NSNumber numberWithInteger:cityId]];
     //先清空数组
     [self.districtArray removeAllObjects];
     //判断结果集中是否有数据,如果有则取出数据

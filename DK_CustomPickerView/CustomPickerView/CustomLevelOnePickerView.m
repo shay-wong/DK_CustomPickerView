@@ -1,9 +1,9 @@
 //
 //  CustomLevelOnePickerView.m
-//  BeautifulPainting
+//  DK_CustomPickerView
 //
-//  Created by 王 on 16/8/12.
-//  Copyright © 2016年 BeautifulPainting. All rights reserved.
+//  Created by apple on 17/4/18.
+//  Copyright © 2017年 DeamonKing. All rights reserved.
 //
 
 #import "CustomLevelOnePickerView.h"
@@ -11,15 +11,15 @@
 @interface CustomLevelOnePickerView ()<UIPickerViewDelegate, UIPickerViewDataSource>
 
 {
+    UIView *view;
+    UIView *btnView;
     UIPickerView *picker;
     UIButton *rightButton;
     UIButton *leftButton;
     
     NSString *selectedData;
+    
 }
-
-@property (nonatomic, strong) UIView *view;
-@property (nonatomic, strong) UIView *btnView;
 
 @end
 
@@ -47,9 +47,8 @@ const CGFloat CustomLevelOnePVBtnViewHeight = 40.0f;
 
 - (void)creatPickerView {
     
-    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, HEIGHT, WIDTH, CustomLevelOnePVHeight)];
+    view = [[UIView alloc] initWithFrame:CGRectMake(0, HEIGHT, WIDTH, CustomLevelOnePVHeight)];
     view.backgroundColor = [UIColor whiteColor];
-    self.view = view;
     
     picker = [[UIPickerView alloc] initWithFrame: CGRectMake(0, 0, WIDTH, CustomLevelOnePVHeight)];
     picker.dataSource = self;
@@ -58,11 +57,10 @@ const CGFloat CustomLevelOnePVBtnViewHeight = 40.0f;
     [picker selectRow: 0 inComponent: 0 animated: YES];
     [view addSubview: picker];
     
-    UIView *btnView = [[UIView alloc] initWithFrame:CGRectMake(0, HEIGHT, WIDTH, 40)];
+    btnView = [[UIView alloc] initWithFrame:CGRectMake(0, HEIGHT, WIDTH, 40)];
     btnView.backgroundColor = [UIColor whiteColor];
     btnView.layer.borderWidth = 0.5;
     btnView.layer.borderColor = [[[UIColor blackColor] colorWithAlphaComponent:0.3] CGColor];
-    self.btnView = btnView;
     
     rightButton = [[UIButton alloc] initWithFrame:CGRectMake(WIDTH - CustomLevelOnePVBtnViewWidth - 10, 0, CustomLevelOnePVBtnViewWidth, CustomLevelOnePVBtnViewHeight)];
     [rightButton setTitle: @"完成" forState: UIControlStateNormal];
@@ -162,14 +160,14 @@ const CGFloat CustomLevelOnePVBtnViewHeight = 40.0f;
 - (void)show {
     UIWindow *window = [UIApplication sharedApplication].keyWindow;
     [window addSubview:self];
-    __weak typeof(self) weakSelf = self;
+    
     [UIView animateWithDuration:0.3 animations:^{
-        CGRect viewFrame = weakSelf.view.frame;
+        CGRect viewFrame = view.frame;
         viewFrame.origin.y = HEIGHT - CustomLevelOnePVHeight;
-        weakSelf.view.frame = viewFrame;
-        CGRect btnViewFrame = weakSelf.btnView.frame;
+        view.frame = viewFrame;
+        CGRect btnViewFrame = btnView.frame;
         btnViewFrame.origin.y = HEIGHT - CustomLevelOnePVHeight - CustomLevelOnePVRowHeight;
-        weakSelf.btnView.frame = btnViewFrame;
+        btnView.frame = btnViewFrame;
     }];
 }
 
@@ -178,12 +176,12 @@ const CGFloat CustomLevelOnePVBtnViewHeight = 40.0f;
     __weak typeof(self) weakSelf = self;
     [UIView animateWithDuration:0.2 animations:^{
         
-        CGRect viewFrame = weakSelf.view.frame;
+        CGRect viewFrame = view.frame;
         viewFrame.origin.y = HEIGHT;
-        weakSelf.view.frame = viewFrame;
-        CGRect btnViewFrame = weakSelf.btnView.frame;
+        view.frame = viewFrame;
+        CGRect btnViewFrame = btnView.frame;
         btnViewFrame.origin.y = HEIGHT;
-        weakSelf.btnView.frame = btnViewFrame;
+        btnView.frame = btnViewFrame;
         
     } completion:^(BOOL finished) {
         [weakSelf removeFromSuperview];

@@ -1,9 +1,9 @@
 //
 //  CustomCityPickerView.m
-//  BeautifulPainting
+//  DK_CustomPickerView
 //
-//  Created by 王 on 16/8/12.
-//  Copyright © 2016年 BeautifulPainting. All rights reserved.
+//  Created by apple on 17/4/18.
+//  Copyright © 2017年 DeamonKing. All rights reserved.
 //
 
 #import "CustomCityPickerView.h"
@@ -19,6 +19,8 @@
 @interface CustomCityPickerView ()<UIPickerViewDelegate, UIPickerViewDataSource>
 
 {
+    UIView *view;
+    UIView *btnView;
     UIPickerView *picker;
     UIButton *rightButton;
     UIButton *leftButton;
@@ -29,9 +31,6 @@
     
     NSString *selectedProvince;
 }
-
-@property (nonatomic, strong) UIView *view;
-@property (nonatomic, strong) UIView *btnView;
 
 @end
 
@@ -76,9 +75,8 @@ const CGFloat CustonCityPVBtnViewHeight = 40.0f;
         [district addObject:districtModel.name];
     }
     
-    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, HEIGHT, WIDTH, CustonCityPVHeight)];
+    view = [[UIView alloc] initWithFrame:CGRectMake(0, HEIGHT, WIDTH, CustonCityPVHeight)];
     view.backgroundColor = [UIColor whiteColor];
-    self.view = view;
     
     picker = [[UIPickerView alloc] initWithFrame: CGRectMake(0, 0, WIDTH, CustonCityPVHeight)];
     picker.dataSource = self;
@@ -89,11 +87,10 @@ const CGFloat CustonCityPVBtnViewHeight = 40.0f;
     
     selectedProvince = [province objectAtIndex: 0];
     
-    UIView *btnView = [[UIView alloc] initWithFrame:CGRectMake(0, HEIGHT, WIDTH, CustonCityPVBtnViewHeight)];
+    btnView = [[UIView alloc] initWithFrame:CGRectMake(0, HEIGHT, WIDTH, CustonCityPVBtnViewHeight)];
     btnView.backgroundColor = [UIColor whiteColor];
     btnView.layer.borderWidth = 0.5;
     btnView.layer.borderColor = [[[UIColor blackColor] colorWithAlphaComponent:0.3] CGColor];
-    self.btnView = btnView;
     
     rightButton = [[UIButton alloc] initWithFrame:CGRectMake(WIDTH - CustonCityPVBtnViewWidth - 10, 0, CustonCityPVBtnViewWidth, CustonCityPVBtnViewHeight)];
     [rightButton setTitle: @"完成" forState: UIControlStateNormal];
@@ -296,28 +293,28 @@ const CGFloat CustonCityPVBtnViewHeight = 40.0f;
 - (void)show {
     UIWindow *window = [UIApplication sharedApplication].keyWindow;
     [window addSubview:self];
-    __weak typeof(self) weakSelf = self;
+    
     [UIView animateWithDuration:0.3 animations:^{
-        CGRect viewFrame = weakSelf.view.frame;
+        CGRect viewFrame = view.frame;
         viewFrame.origin.y = HEIGHT - CustonCityPVHeight;
-        weakSelf.view.frame = viewFrame;
-        CGRect btnViewFrame = weakSelf.btnView.frame;
+        view.frame = viewFrame;
+        CGRect btnViewFrame = btnView.frame;
         btnViewFrame.origin.y = HEIGHT - CustonCityPVHeight - CustomCityPVRowHeight;
-        weakSelf.btnView.frame = btnViewFrame;
+        btnView.frame = btnViewFrame;
     }];
 }
 
 - (void)remove {
-//    [self removeFromSuperview];
+
     __weak typeof(self) weakSelf = self;
     [UIView animateWithDuration:0.2 animations:^{
         
-        CGRect viewFrame = weakSelf.view.frame;
+        CGRect viewFrame = view.frame;
         viewFrame.origin.y = HEIGHT;
-        weakSelf.view.frame = viewFrame;
-        CGRect btnViewFrame = weakSelf.btnView.frame;
+        view.frame = viewFrame;
+        CGRect btnViewFrame = btnView.frame;
         btnViewFrame.origin.y = HEIGHT;
-        weakSelf.btnView.frame = btnViewFrame;
+        btnView.frame = btnViewFrame;
         
     } completion:^(BOOL finished) {
         [weakSelf removeFromSuperview];

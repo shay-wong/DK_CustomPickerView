@@ -1,9 +1,9 @@
 //
 //  CustomCityPickerView.h
-//  BeautifulPainting
+//  DK_CustomPickerView
 //
-//  Created by 王 on 16/8/12.
-//  Copyright © 2016年 BeautifulPainting. All rights reserved.
+//  Created by apple on 17/4/18.
+//  Copyright © 2017年 DeamonKing. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>

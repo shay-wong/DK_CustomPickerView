@@ -1,9 +1,9 @@
 //
 //  AddressModel.h
-//  SyntheticalPayDemo
+//  DK_CustomPickerView
 //
-//  Created by 王帅 on 14/11/1.
-//  Copyright (c) 2014年 王帅. All rights reserved.
+//  Created by apple on 17/4/18.
+//  Copyright © 2017年 DeamonKing. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
