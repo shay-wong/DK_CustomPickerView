@@ -9,24 +9,40 @@
 #import "ViewController.h"
 #import "CustomCityPickerView.h"
 #import "CustomLevelOnePickerView.h"
+#import "CustomLevelThreePickerView.h"
+
+//推荐的定义枚举类型的方式
+typedef NS_ENUM(NSInteger, DK_PickerViewType) {
+    DK_PickerViewTypeCity = 0,
+    DK_PickerViewTypeLevelOne,
+    DK_PickerViewTypeLevelTwo,
+    DK_PickerViewTypeLevelThree
+};
 
 
-@interface ViewController ()
+@interface ViewController ()<UITableViewDelegate, UITableViewDataSource>
 
-@property (nonatomic, strong) UIButton *cityPickerViewBtn;
-@property (nonatomic, strong) UIButton *levelOnePickerViewBtn;
-@property (nonatomic, strong) UILabel *textLabel;
+@property (nonatomic, strong) UITableView *tableView;
 
 @end
 
 @implementation ViewController
 
+- (UITableView *)tableView {
+    if (!_tableView) {
+        _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, WIDTH, HEIGHT) style:UITableViewStylePlain];
+        _tableView.delegate = self;
+        _tableView.dataSource = self;
+        _tableView.tableFooterView = [UIView new];
+    }
+    return _tableView;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
-    [self.view addSubview:self.cityPickerViewBtn];
-    [self.view addSubview:self.levelOnePickerViewBtn];
-    [self.view addSubview:self.textLabel];
+    
+    [self.view addSubview:self.tableView];
 }
 
 
@@ -35,68 +51,99 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (UILabel *)textLabel
-{
-    if (!_textLabel){
-        _textLabel = [[UILabel alloc] initWithFrame:CGRectMake(16, HEIGHT / 2, WIDTH - 36, 50)];
-        _textLabel.textAlignment = NSTextAlignmentCenter;
-        _textLabel.layer.borderColor = [UIColor colorWithRed:123/255.0 green:125/255.0 blue:255/255.0 alpha:1].CGColor;
-        _textLabel.layer.borderWidth = 0.5;
-        _textLabel.layer.cornerRadius = 5;
-        _textLabel.layer.masksToBounds = YES;
+#pragma mark - UITableView DataSource
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return 1;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return 4;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
+    if (!cell) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"cell"];
+        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     }
-    return _textLabel;
+    
+    NSString *title;
+    NSString *detail = @"请选择";
+    switch (indexPath.row) {
+        case DK_PickerViewTypeCity:
+            title = @"城市选择";
+            break;
+        case DK_PickerViewTypeLevelOne:
+            title = @"一级联动";
+            break;
+        case DK_PickerViewTypeLevelTwo:
+            title = @"二级联动";
+            break;
+        case DK_PickerViewTypeLevelThree:
+            title = @"三级联动";
+            break;
+    }
+    cell.textLabel.text = title;
+    cell.detailTextLabel.text = detail;
+    cell.detailTextLabel.lineBreakMode = NSLineBreakByTruncatingMiddle;
+    
+    return cell;
 }
 
-- (UIButton *)cityPickerViewBtn
-{
-	if (!_cityPickerViewBtn){
-        _cityPickerViewBtn = [[UIButton alloc] initWithFrame:CGRectMake(16, 24, WIDTH - 36, 40)];
-        [_cityPickerViewBtn setTitle:@"城市PickerView" forState:UIControlStateNormal];
-        [_cityPickerViewBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-        [_cityPickerViewBtn addTarget:self action:@selector(cityPickerViewBtnClick:) forControlEvents:UIControlEventTouchUpInside];
-        _cityPickerViewBtn.layer.borderColor = [UIColor colorWithRed:123/255.0 green:125/255.0 blue:255/255.0 alpha:1].CGColor;
-        _cityPickerViewBtn.layer.borderWidth = 0.5;
-        _cityPickerViewBtn.layer.cornerRadius = 5;
-        _cityPickerViewBtn.layer.masksToBounds = YES;
-	}
-	return _cityPickerViewBtn;
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    switch (indexPath.row) {
+        case DK_PickerViewTypeCity:
+            [self cityPickerViewClick:indexPath];
+            break;
+        case DK_PickerViewTypeLevelOne:
+            [self levelOnePickerViewClick:indexPath];
+            break;
+        case DK_PickerViewTypeLevelTwo:
+            
+            break;
+        case DK_PickerViewTypeLevelThree:
+            [self levelThreePickerViewClick:indexPath];
+            break;
+    }
 }
 
-- (UIButton *)levelOnePickerViewBtn
-{
-	if (!_levelOnePickerViewBtn){
-        _levelOnePickerViewBtn = [[UIButton alloc] initWithFrame:CGRectMake(16, CGRectGetMaxY(_cityPickerViewBtn.frame) + 16, WIDTH - 36, 40)];
-        [_levelOnePickerViewBtn setTitle:@"一级联动PickerView" forState:UIControlStateNormal];
-        [_levelOnePickerViewBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-        [_levelOnePickerViewBtn addTarget:self action:@selector(levelOnePickerViewBtnClick:) forControlEvents:UIControlEventTouchUpInside];
-        _levelOnePickerViewBtn.layer.borderColor = [UIColor colorWithRed:123/255.0 green:125/255.0 blue:255/255.0 alpha:1].CGColor;
-        _levelOnePickerViewBtn.layer.borderWidth = 0.5;
-        _levelOnePickerViewBtn.layer.cornerRadius = 5;
-        _levelOnePickerViewBtn.layer.masksToBounds = YES;
-	}
-	return _levelOnePickerViewBtn;
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return 60;
 }
 
-- (void)cityPickerViewBtnClick:(id)sender {
+- (void)cityPickerViewClick:(NSIndexPath *)indexPath {
+    UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
     CustomCityPickerView *cityPVC = [[CustomCityPickerView alloc] initWithFrame:CGRectMake(0, 0, WIDTH, HEIGHT)];
     
-    __weak typeof(self) weakSelf = self;
     [cityPVC addButtonAction:^(NSString *province, NSString *city, NSString *district) {
         NSLog(@"%@ %@ %@", province, city, district);
-        weakSelf.textLabel.text = [NSString stringWithFormat:@"%@%@%@", province, city, district];
+        cell.detailTextLabel.text = [NSString stringWithFormat:@"%@%@%@", province, city, district];
     }];
     [cityPVC show];
 }
 
-- (void)levelOnePickerViewBtnClick:(id)sender {
+- (void)levelOnePickerViewClick:(NSIndexPath *)indexPath {
+    UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
     CustomLevelOnePickerView *levelOnePVC = [[CustomLevelOnePickerView alloc] initWithFrame:CGRectMake(0, 0, WIDTH, HEIGHT)];
     NSArray *sexArr = @[@"男", @"女", @"人妖", @"未知性别"];
     [levelOnePVC.dataArrM addObjectsFromArray:sexArr];
-    __weak typeof(self) weakSelf = self;
+    
     [levelOnePVC addButtonAction:^(NSString *data) {
         NSLog(@"%@", data);
-        weakSelf.textLabel.text = [NSString stringWithFormat:@"%@", data];
+        cell.detailTextLabel.text = [NSString stringWithFormat:@"%@", data];
+    }];
+    [levelOnePVC show];
+}
+
+- (void)levelThreePickerViewClick:(NSIndexPath *)indexPath {
+    UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
+    CustomLevelThreePickerView *levelOnePVC = [[CustomLevelThreePickerView alloc] initWithFrame:CGRectMake(0, 0, WIDTH, HEIGHT)];
+    NSArray *sexArr = @[@"男", @"女", @"人妖", @"未知性别,未知性别,未知性别,未知性别,"];
+    [levelOnePVC.dataArrM addObjectsFromArray:sexArr];
+    
+    [levelOnePVC addButtonAction:^(NSString *data) {
+        NSLog(@"%@", data);
+        cell.detailTextLabel.text = [NSString stringWithFormat:@"%@", data];
     }];
     [levelOnePVC show];
 }

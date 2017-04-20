@@ -7,10 +7,6 @@
 //
 
 #import "CustomCityPickerView.h"
-#import "AddressFMDBManager.h"
-#import "ProvinceAddressModel.h"
-#import "CityAddressModel.h"
-#import "DistrictModel.h"
 
 #define PROVINCE_COMPONENT  0
 #define CITY_COMPONENT      1
@@ -25,6 +21,7 @@
     UIButton *rightButton;
     UIButton *leftButton;
     
+    NSMutableArray *arrayM;
     NSMutableArray *province;
     NSMutableArray *city;
     NSMutableArray *district;
@@ -50,30 +47,33 @@ const CGFloat CustonCityPVBtnViewHeight = 40.0f;
 }
 
 - (void)creatPickerView {
-    province = [[NSMutableArray alloc] initWithCapacity:5];
-    city = [[NSMutableArray alloc] initWithCapacity:5];
-    district = [[NSMutableArray alloc] initWithCapacity:5];
+    arrayM = [NSMutableArray array];
+    province = [NSMutableArray array];
+    city = [NSMutableArray array];
+    district = [NSMutableArray array];
     
-    AddressFMDBManager *addFMDBManager = [AddressFMDBManager sharedAddressFMDBManager];
-    
+    NSString *plistPath = [[NSBundle mainBundle] pathForResource:@"area" ofType:@"plist"];
+    arrayM = [[NSMutableArray alloc] initWithContentsOfFile:plistPath];
+    NSLog(@"%@", arrayM);
     //得到省份的model数组
-    NSArray *arr = [NSArray arrayWithArray:[addFMDBManager selectAllProvince]];
-    for (ProvinceAddressModel *provinceModel in arr) {
-        [province addObject:provinceModel.name];
+    for (NSDictionary *dict in arrayM) {
+        [province addObjectsFromArray:dict.allKeys];
+        //得到市的model的数组
+        NSArray *array2 = dict[province[0]];
+        for (NSDictionary *dict in array2) {
+            [city addObjectsFromArray:dict.allKeys];
+            NSArray *array3 = dict[city[0]];
+            //得到区的model的数组
+            for (NSString *str in array3) {
+                [district addObject:str];
+            }
+        }
     }
     
-    //得到市的model的数组
-    NSArray *arr2 = [NSArray arrayWithArray:[addFMDBManager selectAllCityFrom:1]];
     
-    for (CityAddressModel *cityModel in arr2) {
-        [city addObject:cityModel.name];
-    }
+    selectedProvince = [province objectAtIndex: 0];
     
-    //得到区的model的数组
-    NSArray *arr3 = [NSArray arrayWithArray:[addFMDBManager selectAllDistrictFrom:1]];
-    for (DistrictModel *districtModel in arr3) {
-        [district addObject:districtModel.name];
-    }
+    
     
     view = [[UIView alloc] initWithFrame:CGRectMake(0, HEIGHT, WIDTH, CustonCityPVHeight)];
     view.backgroundColor = [UIColor whiteColor];
@@ -85,7 +85,6 @@ const CGFloat CustonCityPVBtnViewHeight = 40.0f;
     [picker selectRow: 0 inComponent: 0 animated: YES];
     [view addSubview: picker];
     
-    selectedProvince = [province objectAtIndex: 0];
     
     btnView = [[UIView alloc] initWithFrame:CGRectMake(0, HEIGHT, WIDTH, CustonCityPVBtnViewHeight)];
     btnView.backgroundColor = [UIColor whiteColor];
@@ -194,44 +193,31 @@ const CGFloat CustonCityPVBtnViewHeight = 40.0f;
     if (component == PROVINCE_COMPONENT) {
         selectedProvince = [province objectAtIndex: row];
         
-        AddressFMDBManager *addFMDBManager=[AddressFMDBManager sharedAddressFMDBManager];
-        
         [city removeAllObjects];
-        //得到市的model的数组
-        NSArray *arr2=[NSArray arrayWithArray:[addFMDBManager selectAllCityFrom:row+1]];
-        for (CityAddressModel *cityModel in arr2) {
-            [city addObject:cityModel.name];
-        }
         
-        //获取城市id
-        NSInteger cityId=[addFMDBManager selectIdFromCityWith:[city objectAtIndex:0]];
-        
-//        NSLog(@"城市id为:::%ld",cityId);
         [district removeAllObjects];
-        //得到区的model的数组
-        NSArray *arr3=[NSArray arrayWithArray:[addFMDBManager selectAllDistrictFrom:cityId]];
-        for (DistrictModel *districtModel in arr3) {
-            [district addObject:districtModel.name];
+        //得到市的model的数组
+        for (NSDictionary *dict in [arrayM[row] objectForKey:selectedProvince]) {
+            [city addObjectsFromArray:dict.allKeys];
+            //得到区的model的数组
+            for (NSString *str in dict[city[0]]) {
+                [district addObject:str];
+            }
         }
         
         [picker selectRow:0 inComponent: CITY_COMPONENT animated: NO];
         [picker selectRow:0 inComponent: DISTRICT_COMPONENT animated: NO];
         [picker reloadComponent: CITY_COMPONENT];
         [picker reloadComponent: DISTRICT_COMPONENT];
-        //        [picker reloadAllComponents];
         
     }
     else if (component == CITY_COMPONENT) {
-        //        NSInteger *provinceIndex = [province indexOfObject: selectedProvince];
-        AddressFMDBManager *addFMDBManager=[AddressFMDBManager sharedAddressFMDBManager];
+        
         NSString *cityName=[city objectAtIndex:row];
-        NSInteger cityId=[addFMDBManager selectIdFromCityWith:cityName];
-//        NSLog(@"====%@",cityName);
         [district removeAllObjects];
         //得到区的model的数组
-        NSArray *arr3=[NSArray arrayWithArray:[addFMDBManager selectAllDistrictFrom:cityId]];
-        for (DistrictModel *districtModel in arr3) {
-            [district addObject:districtModel.name];
+        for (NSString *str in [[arrayM[[province indexOfObject:selectedProvince]] objectForKey:selectedProvince][row] objectForKey:cityName]) {
+            [district addObject:str];
         }
         [picker selectRow:0 inComponent: DISTRICT_COMPONENT animated: NO];
         [picker reloadComponent: DISTRICT_COMPONENT];
@@ -242,15 +228,7 @@ const CGFloat CustonCityPVBtnViewHeight = 40.0f;
 
 - (CGFloat)pickerView:(UIPickerView *)pickerView widthForComponent:(NSInteger)component
 {
-    if (component == PROVINCE_COMPONENT) {
-        return WIDTH * 2 / 8;
-    }
-    else if (component == CITY_COMPONENT) {
-        return WIDTH * 3 / 8;
-    } else if (component == DISTRICT_COMPONENT){
-        return WIDTH * 3 / 8;
-    }
-    return 0;
+    return (WIDTH - 16)/3;
 }
 
 - (CGFloat)pickerView:(UIPickerView *)pickerView rowHeightForComponent:(NSInteger)component {
@@ -259,31 +237,20 @@ const CGFloat CustonCityPVBtnViewHeight = 40.0f;
 
 - (UIView *)pickerView:(UIPickerView *)pickerView viewForRow:(NSInteger)row forComponent:(NSInteger)component reusingView:(UIView *)view
 {
-    UILabel *myView = nil;
+    UILabel* pickerLabel = nil;
+    if (!pickerLabel) {
+        pickerLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, WIDTH/3, CustomCityPVRowHeight)];
+        pickerLabel.numberOfLines = 0;
+        pickerLabel.lineBreakMode = NSLineBreakByWordWrapping;
+        pickerLabel.textAlignment = NSTextAlignmentCenter;
+        pickerLabel.backgroundColor = [UIColor clearColor];
+        [pickerLabel setFont:[UIFont systemFontOfSize:13]];
+    }
+    //调用上一个委托方法，获得要展示的title
+    pickerLabel.text=[self pickerView:pickerView titleForRow:row forComponent:component];
     
-    if (component == PROVINCE_COMPONENT) {
-        myView = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, WIDTH * 2 / 8, CustomCityPVRowHeight)];
-        myView.textAlignment = NSTextAlignmentCenter;
-        myView.text = [province objectAtIndex:row];
-        myView.font = [UIFont systemFontOfSize:15];
-        myView.backgroundColor = [UIColor clearColor];
-    }
-    else if (component == CITY_COMPONENT) {
-        myView = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, WIDTH * 3 / 8, CustomCityPVRowHeight)];
-        myView.textAlignment = NSTextAlignmentCenter;
-        myView.text = [city objectAtIndex:row];
-        myView.font = [UIFont systemFontOfSize:15];
-        myView.backgroundColor = [UIColor clearColor];
-    }
-    else {
-        myView = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, WIDTH * 3 / 8, CustomCityPVRowHeight)];
-        myView.textAlignment = NSTextAlignmentCenter;
-        myView.text = [district objectAtIndex:row];
-        myView.font = [UIFont systemFontOfSize:15];
-        myView.backgroundColor = [UIColor clearColor];
-    }
     
-    return myView;
+    return pickerLabel;
 }
 
 - (void)touchesEnded:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {

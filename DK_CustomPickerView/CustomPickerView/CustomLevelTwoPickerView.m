@@ -1,14 +1,17 @@
 //
-//  CustomLevelOnePickerView.m
+//  CustomLevelTwoPickerView.m
 //  DK_CustomPickerView
 //
-//  Created by apple on 17/4/18.
+//  Created by apple on 17/4/19.
 //  Copyright © 2017年 DeamonKing. All rights reserved.
 //
 
-#import "CustomLevelOnePickerView.h"
+#import "CustomLevelTwoPickerView.h"
 
-@interface CustomLevelOnePickerView ()<UIPickerViewDelegate, UIPickerViewDataSource>
+#define FIRST_COMPONENT       0
+#define SECOND_COMPONENT      1
+
+@interface CustomLevelTwoPickerView ()<UIPickerViewDelegate, UIPickerViewDataSource>
 
 {
     UIView *view;
@@ -23,12 +26,12 @@
 
 @end
 
-@implementation CustomLevelOnePickerView
+@implementation CustomLevelTwoPickerView
 
-const CGFloat CustomLevelOnePVRowHeight = 35.0f;
-const CGFloat CustomLevelOnePVHeight = 250.0f;
-const CGFloat CustomLevelOnePVBtnViewWidth = 40.0f;
-const CGFloat CustomLevelOnePVBtnViewHeight = 40.0f;
+const CGFloat CustomLevelTwoPVRowHeight     = 35.0f;
+const CGFloat CustomLevelTwoPVHeight        = 250.0f;
+const CGFloat CustomLevelTwoPVBtnViewWidth  = 40.0f;
+const CGFloat CustomLevelTwoPVBtnViewHeight = 40.0f;
 
 - (NSMutableArray *)dataArrM {
     if (!_dataArrM) {
@@ -47,10 +50,10 @@ const CGFloat CustomLevelOnePVBtnViewHeight = 40.0f;
 
 - (void)creatPickerView {
     
-    view = [[UIView alloc] initWithFrame:CGRectMake(0, HEIGHT, WIDTH, CustomLevelOnePVHeight)];
+    view = [[UIView alloc] initWithFrame:CGRectMake(0, HEIGHT, WIDTH, CustomLevelTwoPVHeight)];
     view.backgroundColor = [UIColor whiteColor];
     
-    picker = [[UIPickerView alloc] initWithFrame: CGRectMake(0, 0, WIDTH, CustomLevelOnePVHeight)];
+    picker = [[UIPickerView alloc] initWithFrame: CGRectMake(0, 0, WIDTH, CustomLevelTwoPVHeight)];
     picker.dataSource = self;
     picker.delegate = self;
     picker.showsSelectionIndicator = YES;
@@ -62,14 +65,14 @@ const CGFloat CustomLevelOnePVBtnViewHeight = 40.0f;
     btnView.layer.borderWidth = 0.5;
     btnView.layer.borderColor = [[[UIColor blackColor] colorWithAlphaComponent:0.3] CGColor];
     
-    rightButton = [[UIButton alloc] initWithFrame:CGRectMake(WIDTH - CustomLevelOnePVBtnViewWidth - 10, 0, CustomLevelOnePVBtnViewWidth, CustomLevelOnePVBtnViewHeight)];
+    rightButton = [[UIButton alloc] initWithFrame:CGRectMake(WIDTH - CustomLevelTwoPVBtnViewWidth - 10, 0, CustomLevelTwoPVBtnViewWidth, CustomLevelTwoPVBtnViewHeight)];
     [rightButton setTitle: @"完成" forState: UIControlStateNormal];
     [rightButton setTitleColor:[UIColor colorWithRed:58/255.0 green:112/255.0 blue:234/255.0 alpha:1] forState:UIControlStateNormal];
     rightButton.titleLabel.font = [UIFont systemFontOfSize:15];
     [rightButton addTarget: self action: @selector(rightButtonClicked:) forControlEvents: UIControlEventTouchUpInside];
     [btnView addSubview:rightButton];
     
-    leftButton = [[UIButton alloc] initWithFrame:CGRectMake(10, 0, CustomLevelOnePVBtnViewWidth, CustomLevelOnePVBtnViewHeight)];
+    leftButton = [[UIButton alloc] initWithFrame:CGRectMake(10, 0, CustomLevelTwoPVBtnViewWidth, CustomLevelTwoPVBtnViewHeight)];
     [leftButton setTitle: @"取消" forState: UIControlStateNormal];
     [leftButton setTitleColor:[UIColor colorWithRed:58/255.0 green:112/255.0 blue:234/255.0 alpha:1] forState:UIControlStateNormal];
     leftButton.titleLabel.font = [UIFont systemFontOfSize:15];
@@ -108,12 +111,17 @@ const CGFloat CustomLevelOnePVBtnViewHeight = 40.0f;
 
 - (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView
 {
-    return 1;
+    return 2;
 }
 
 - (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component
 {
-    return [self.dataArrM count];
+    if (component == FIRST_COMPONENT) {
+        return [self.dataArrM count];
+    }
+    else {
+        return [self.dataArrM count];
+    }
 }
 
 
@@ -137,24 +145,20 @@ const CGFloat CustomLevelOnePVBtnViewHeight = 40.0f;
 }
 
 - (CGFloat)pickerView:(UIPickerView *)pickerView rowHeightForComponent:(NSInteger)component {
-    return CustomLevelOnePVRowHeight;
+    return CustomLevelTwoPVRowHeight;
 }
 
 - (UIView *)pickerView:(UIPickerView *)pickerView viewForRow:(NSInteger)row forComponent:(NSInteger)component reusingView:(UIView *)view
 {
-    UILabel* pickerLabel = nil;
-    if (!pickerLabel) {
-        pickerLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, WIDTH, CustomLevelOnePVRowHeight)];
-        pickerLabel.numberOfLines = 0;
-        pickerLabel.lineBreakMode = NSLineBreakByWordWrapping;
-        pickerLabel.textAlignment = NSTextAlignmentCenter;
-        pickerLabel.backgroundColor = [UIColor clearColor];
-        [pickerLabel setFont:[UIFont systemFontOfSize:13]];
-    }
-    pickerLabel.text=[self pickerView:pickerView titleForRow:row forComponent:component];//调用上一个委托方法，获得要展示的title
+    UILabel *myView = nil;
     
+    myView = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, WIDTH / 3, CustomLevelTwoPVRowHeight)];
+    myView.textAlignment = NSTextAlignmentCenter;
+    myView.text = [self.dataArrM objectAtIndex:row];
+    myView.font = [UIFont systemFontOfSize:17];
+    myView.backgroundColor = [UIColor clearColor];
     
-    return pickerLabel;
+    return myView;
 }
 
 - (void)touchesEnded:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
@@ -167,10 +171,10 @@ const CGFloat CustomLevelOnePVBtnViewHeight = 40.0f;
     
     [UIView animateWithDuration:0.3 animations:^{
         CGRect viewFrame = view.frame;
-        viewFrame.origin.y = HEIGHT - CustomLevelOnePVHeight;
+        viewFrame.origin.y = HEIGHT - CustomLevelTwoPVHeight;
         view.frame = viewFrame;
         CGRect btnViewFrame = btnView.frame;
-        btnViewFrame.origin.y = HEIGHT - CustomLevelOnePVHeight - CustomLevelOnePVRowHeight;
+        btnViewFrame.origin.y = HEIGHT - CustomLevelTwoPVHeight - CustomLevelTwoPVRowHeight;
         btnView.frame = btnViewFrame;
     }];
 }

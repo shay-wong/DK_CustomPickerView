@@ -1,8 +1,8 @@
 //
-//  CustomLevelOnePickerView.h
+//  CustomLevelThreePickerView.h
 //  DK_CustomPickerView
 //
-//  Created by apple on 17/4/18.
+//  Created by apple on 17/4/20.
 //  Copyright © 2017年 DeamonKing. All rights reserved.
 //
 
@@ -15,7 +15,7 @@
  */
 typedef void (^buttonBlock) (NSString *data);
 
-@interface CustomLevelOnePickerView : UIView
+@interface CustomLevelThreePickerView : UIView
 
 /**
  *  传入要显示的参数数组，存放字符串

@@ -14,21 +14,14 @@
 		1834B5321EA608B20067259C /* DK_CustomPickerView.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1834B5301EA608B20067259C /* DK_CustomPickerView.xcdatamodeld */; };
 		1834B5341EA608B20067259C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1834B5331EA608B20067259C /* Assets.xcassets */; };
 		1834B5371EA608B20067259C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1834B5351EA608B20067259C /* LaunchScreen.storyboard */; };
-		1834B55C1EA608C60067259C /* AddressFMDBManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1834B5401EA608C60067259C /* AddressFMDBManager.m */; };
 		1834B55D1EA608C60067259C /* area.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1834B5411EA608C60067259C /* area.plist */; };
-		1834B55E1EA608C60067259C /* CityAddressModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1834B5431EA608C60067259C /* CityAddressModel.m */; };
 		1834B55F1EA608C60067259C /* CustomCityPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1834B5451EA608C60067259C /* CustomCityPickerView.m */; };
 		1834B5601EA608C60067259C /* CustomLevelOnePickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1834B5471EA608C60067259C /* CustomLevelOnePickerView.m */; };
-		1834B5611EA608C60067259C /* DistrictModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1834B5491EA608C60067259C /* DistrictModel.m */; };
-		1834B5621EA608C60067259C /* AddressModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1834B54D1EA608C60067259C /* AddressModel.m */; };
-		1834B5631EA608C60067259C /* cityData.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 1834B54E1EA608C60067259C /* cityData.sqlite */; };
-		1834B5641EA608C60067259C /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 1834B5501EA608C60067259C /* FMDatabase.m */; };
-		1834B5651EA608C60067259C /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 1834B5521EA608C60067259C /* FMDatabaseAdditions.m */; };
-		1834B5661EA608C60067259C /* FMDatabasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = 1834B5541EA608C60067259C /* FMDatabasePool.m */; };
-		1834B5671EA608C60067259C /* FMDatabaseQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 1834B5561EA608C60067259C /* FMDatabaseQueue.m */; };
-		1834B5681EA608C60067259C /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 1834B5591EA608C60067259C /* FMResultSet.m */; };
-		1834B5691EA608C60067259C /* ProvinceAddressModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1834B55B1EA608C60067259C /* ProvinceAddressModel.m */; };
 		1834B56D1EA609320067259C /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 1834B56C1EA609320067259C /* libsqlite3.tbd */; };
+		185505911EA7044C00D66DC4 /* CustomLevelTwoPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 185505901EA7044C00D66DC4 /* CustomLevelTwoPickerView.m */; };
+		185505931EA70BE300D66DC4 /* Foundation+Log.m in Sources */ = {isa = PBXBuildFile; fileRef = 185505921EA70BE300D66DC4 /* Foundation+Log.m */; };
+		185548D21EA8854500E40E18 /* CustomLevelThreePickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 185548D11EA8854500E40E18 /* CustomLevelThreePickerView.m */; };
+		185548D51EA88ACE00E40E18 /* TableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 185548D41EA88ACE00E40E18 /* TableViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,35 +36,20 @@
 		1834B5331EA608B20067259C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1834B5361EA608B20067259C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1834B5381EA608B20067259C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		1834B53F1EA608C60067259C /* AddressFMDBManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddressFMDBManager.h; sourceTree = "<group>"; };
-		1834B5401EA608C60067259C /* AddressFMDBManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddressFMDBManager.m; sourceTree = "<group>"; };
 		1834B5411EA608C60067259C /* area.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = area.plist; sourceTree = "<group>"; };
-		1834B5421EA608C60067259C /* CityAddressModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CityAddressModel.h; sourceTree = "<group>"; };
-		1834B5431EA608C60067259C /* CityAddressModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CityAddressModel.m; sourceTree = "<group>"; };
 		1834B5441EA608C60067259C /* CustomCityPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomCityPickerView.h; sourceTree = "<group>"; };
 		1834B5451EA608C60067259C /* CustomCityPickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomCityPickerView.m; sourceTree = "<group>"; };
 		1834B5461EA608C60067259C /* CustomLevelOnePickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomLevelOnePickerView.h; sourceTree = "<group>"; };
 		1834B5471EA608C60067259C /* CustomLevelOnePickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomLevelOnePickerView.m; sourceTree = "<group>"; };
-		1834B5481EA608C60067259C /* DistrictModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DistrictModel.h; sourceTree = "<group>"; };
-		1834B5491EA608C60067259C /* DistrictModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DistrictModel.m; sourceTree = "<group>"; };
-		1834B54C1EA608C60067259C /* AddressModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddressModel.h; sourceTree = "<group>"; };
-		1834B54D1EA608C60067259C /* AddressModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddressModel.m; sourceTree = "<group>"; };
-		1834B54E1EA608C60067259C /* cityData.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = cityData.sqlite; sourceTree = "<group>"; };
-		1834B54F1EA608C60067259C /* FMDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabase.h; sourceTree = "<group>"; };
-		1834B5501EA608C60067259C /* FMDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabase.m; sourceTree = "<group>"; };
-		1834B5511EA608C60067259C /* FMDatabaseAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabaseAdditions.h; sourceTree = "<group>"; };
-		1834B5521EA608C60067259C /* FMDatabaseAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabaseAdditions.m; sourceTree = "<group>"; };
-		1834B5531EA608C60067259C /* FMDatabasePool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabasePool.h; sourceTree = "<group>"; };
-		1834B5541EA608C60067259C /* FMDatabasePool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabasePool.m; sourceTree = "<group>"; };
-		1834B5551EA608C60067259C /* FMDatabaseQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabaseQueue.h; sourceTree = "<group>"; };
-		1834B5561EA608C60067259C /* FMDatabaseQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabaseQueue.m; sourceTree = "<group>"; };
-		1834B5571EA608C60067259C /* FMDB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDB.h; sourceTree = "<group>"; };
-		1834B5581EA608C60067259C /* FMResultSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMResultSet.h; sourceTree = "<group>"; };
-		1834B5591EA608C60067259C /* FMResultSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMResultSet.m; sourceTree = "<group>"; };
-		1834B55A1EA608C60067259C /* ProvinceAddressModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProvinceAddressModel.h; sourceTree = "<group>"; };
-		1834B55B1EA608C60067259C /* ProvinceAddressModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProvinceAddressModel.m; sourceTree = "<group>"; };
 		1834B56A1EA608D50067259C /* Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Header.h; sourceTree = "<group>"; };
 		1834B56C1EA609320067259C /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+		1855058F1EA7044C00D66DC4 /* CustomLevelTwoPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomLevelTwoPickerView.h; sourceTree = "<group>"; };
+		185505901EA7044C00D66DC4 /* CustomLevelTwoPickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomLevelTwoPickerView.m; sourceTree = "<group>"; };
+		185505921EA70BE300D66DC4 /* Foundation+Log.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Foundation+Log.m"; sourceTree = "<group>"; };
+		185548D01EA8854500E40E18 /* CustomLevelThreePickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomLevelThreePickerView.h; sourceTree = "<group>"; };
+		185548D11EA8854500E40E18 /* CustomLevelThreePickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomLevelThreePickerView.m; sourceTree = "<group>"; };
+		185548D31EA88ACE00E40E18 /* TableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewCell.h; sourceTree = "<group>"; };
+		185548D41EA88ACE00E40E18 /* TableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +89,9 @@
 				1834B5281EA608B10067259C /* AppDelegate.m */,
 				1834B52A1EA608B10067259C /* ViewController.h */,
 				1834B52B1EA608B10067259C /* ViewController.m */,
+				185548D31EA88ACE00E40E18 /* TableViewCell.h */,
+				185548D41EA88ACE00E40E18 /* TableViewCell.m */,
+				185505921EA70BE300D66DC4 /* Foundation+Log.m */,
 				1834B56A1EA608D50067259C /* Header.h */,
 				1834B52D1EA608B10067259C /* Main.storyboard */,
 				1834B5331EA608B20067259C /* Assets.xcassets */,
@@ -133,51 +114,17 @@
 		1834B53E1EA608C60067259C /* CustomPickerView */ = {
 			isa = PBXGroup;
 			children = (
-				1834B54A1EA608C60067259C /* FMDB */,
-				1834B53F1EA608C60067259C /* AddressFMDBManager.h */,
-				1834B5401EA608C60067259C /* AddressFMDBManager.m */,
 				1834B5411EA608C60067259C /* area.plist */,
-				1834B5421EA608C60067259C /* CityAddressModel.h */,
-				1834B5431EA608C60067259C /* CityAddressModel.m */,
-				1834B5481EA608C60067259C /* DistrictModel.h */,
-				1834B5491EA608C60067259C /* DistrictModel.m */,
-				1834B55A1EA608C60067259C /* ProvinceAddressModel.h */,
-				1834B55B1EA608C60067259C /* ProvinceAddressModel.m */,
 				1834B5441EA608C60067259C /* CustomCityPickerView.h */,
 				1834B5451EA608C60067259C /* CustomCityPickerView.m */,
 				1834B5461EA608C60067259C /* CustomLevelOnePickerView.h */,
 				1834B5471EA608C60067259C /* CustomLevelOnePickerView.m */,
+				1855058F1EA7044C00D66DC4 /* CustomLevelTwoPickerView.h */,
+				185505901EA7044C00D66DC4 /* CustomLevelTwoPickerView.m */,
+				185548D01EA8854500E40E18 /* CustomLevelThreePickerView.h */,
+				185548D11EA8854500E40E18 /* CustomLevelThreePickerView.m */,
 			);
 			path = CustomPickerView;
-			sourceTree = "<group>";
-		};
-		1834B54A1EA608C60067259C /* FMDB */ = {
-			isa = PBXGroup;
-			children = (
-				1834B54B1EA608C60067259C /* AddressModel */,
-				1834B54E1EA608C60067259C /* cityData.sqlite */,
-				1834B54F1EA608C60067259C /* FMDatabase.h */,
-				1834B5501EA608C60067259C /* FMDatabase.m */,
-				1834B5511EA608C60067259C /* FMDatabaseAdditions.h */,
-				1834B5521EA608C60067259C /* FMDatabaseAdditions.m */,
-				1834B5531EA608C60067259C /* FMDatabasePool.h */,
-				1834B5541EA608C60067259C /* FMDatabasePool.m */,
-				1834B5551EA608C60067259C /* FMDatabaseQueue.h */,
-				1834B5561EA608C60067259C /* FMDatabaseQueue.m */,
-				1834B5571EA608C60067259C /* FMDB.h */,
-				1834B5581EA608C60067259C /* FMResultSet.h */,
-				1834B5591EA608C60067259C /* FMResultSet.m */,
-			);
-			path = FMDB;
-			sourceTree = "<group>";
-		};
-		1834B54B1EA608C60067259C /* AddressModel */ = {
-			isa = PBXGroup;
-			children = (
-				1834B54C1EA608C60067259C /* AddressModel.h */,
-				1834B54D1EA608C60067259C /* AddressModel.m */,
-			);
-			path = AddressModel;
 			sourceTree = "<group>";
 		};
 		1834B56B1EA609320067259C /* Frameworks */ = {
@@ -250,7 +197,6 @@
 				1834B5371EA608B20067259C /* LaunchScreen.storyboard in Resources */,
 				1834B55D1EA608C60067259C /* area.plist in Resources */,
 				1834B5341EA608B20067259C /* Assets.xcassets in Resources */,
-				1834B5631EA608C60067259C /* cityData.sqlite in Resources */,
 				1834B52F1EA608B10067259C /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -262,22 +208,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1834B5621EA608C60067259C /* AddressModel.m in Sources */,
-				1834B55C1EA608C60067259C /* AddressFMDBManager.m in Sources */,
-				1834B5661EA608C60067259C /* FMDatabasePool.m in Sources */,
-				1834B5671EA608C60067259C /* FMDatabaseQueue.m in Sources */,
-				1834B55E1EA608C60067259C /* CityAddressModel.m in Sources */,
+				185505911EA7044C00D66DC4 /* CustomLevelTwoPickerView.m in Sources */,
+				185505931EA70BE300D66DC4 /* Foundation+Log.m in Sources */,
 				1834B5321EA608B20067259C /* DK_CustomPickerView.xcdatamodeld in Sources */,
-				1834B5611EA608C60067259C /* DistrictModel.m in Sources */,
+				185548D51EA88ACE00E40E18 /* TableViewCell.m in Sources */,
 				1834B5601EA608C60067259C /* CustomLevelOnePickerView.m in Sources */,
 				1834B52C1EA608B10067259C /* ViewController.m in Sources */,
-				1834B5681EA608C60067259C /* FMResultSet.m in Sources */,
 				1834B5291EA608B10067259C /* AppDelegate.m in Sources */,
+				185548D21EA8854500E40E18 /* CustomLevelThreePickerView.m in Sources */,
 				1834B55F1EA608C60067259C /* CustomCityPickerView.m in Sources */,
-				1834B5641EA608C60067259C /* FMDatabase.m in Sources */,
 				1834B5261EA608B10067259C /* main.m in Sources */,
-				1834B5691EA608C60067259C /* ProvinceAddressModel.m in Sources */,
-				1834B5651EA608C60067259C /* FMDatabaseAdditions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -438,6 +378,7 @@
 				1834B53D1EA608B20067259C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
