@@ -21,7 +21,6 @@
 		185505911EA7044C00D66DC4 /* CustomLevelTwoPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 185505901EA7044C00D66DC4 /* CustomLevelTwoPickerView.m */; };
 		185505931EA70BE300D66DC4 /* Foundation+Log.m in Sources */ = {isa = PBXBuildFile; fileRef = 185505921EA70BE300D66DC4 /* Foundation+Log.m */; };
 		185548D21EA8854500E40E18 /* CustomLevelThreePickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 185548D11EA8854500E40E18 /* CustomLevelThreePickerView.m */; };
-		185548D51EA88ACE00E40E18 /* TableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 185548D41EA88ACE00E40E18 /* TableViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,8 +47,6 @@
 		185505921EA70BE300D66DC4 /* Foundation+Log.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Foundation+Log.m"; sourceTree = "<group>"; };
 		185548D01EA8854500E40E18 /* CustomLevelThreePickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomLevelThreePickerView.h; sourceTree = "<group>"; };
 		185548D11EA8854500E40E18 /* CustomLevelThreePickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomLevelThreePickerView.m; sourceTree = "<group>"; };
-		185548D31EA88ACE00E40E18 /* TableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewCell.h; sourceTree = "<group>"; };
-		185548D41EA88ACE00E40E18 /* TableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,8 +86,6 @@
 				1834B5281EA608B10067259C /* AppDelegate.m */,
 				1834B52A1EA608B10067259C /* ViewController.h */,
 				1834B52B1EA608B10067259C /* ViewController.m */,
-				185548D31EA88ACE00E40E18 /* TableViewCell.h */,
-				185548D41EA88ACE00E40E18 /* TableViewCell.m */,
 				185505921EA70BE300D66DC4 /* Foundation+Log.m */,
 				1834B56A1EA608D50067259C /* Header.h */,
 				1834B52D1EA608B10067259C /* Main.storyboard */,
@@ -211,7 +206,6 @@
 				185505911EA7044C00D66DC4 /* CustomLevelTwoPickerView.m in Sources */,
 				185505931EA70BE300D66DC4 /* Foundation+Log.m in Sources */,
 				1834B5321EA608B20067259C /* DK_CustomPickerView.xcdatamodeld in Sources */,
-				185548D51EA88ACE00E40E18 /* TableViewCell.m in Sources */,
 				1834B5601EA608C60067259C /* CustomLevelOnePickerView.m in Sources */,
 				1834B52C1EA608B10067259C /* ViewController.m in Sources */,
 				1834B5291EA608B10067259C /* AppDelegate.m in Sources */,
