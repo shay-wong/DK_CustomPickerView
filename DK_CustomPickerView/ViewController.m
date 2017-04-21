@@ -10,18 +10,25 @@
 #import "CustomCityPickerView.h"
 #import "CustomLevelOnePickerView.h"
 #import "CustomLevelThreePickerView.h"
+#import "CustomDatePickerView.h"
+#import "WHUCalendarPopView.h"
 
 //推荐的定义枚举类型的方式
 typedef NS_ENUM(NSInteger, DK_PickerViewType) {
     DK_PickerViewTypeCity = 0,
     DK_PickerViewTypeLevelOne,
     DK_PickerViewTypeLevelTwo,
-    DK_PickerViewTypeLevelThree
+    DK_PickerViewTypeLevelThree,
+    DK_PickerViewTypeDate,
+    DK_PickerViewTypeSystemDate,
+    DK_PickerViewTypeCalendarDate
 };
 
 
 @interface ViewController ()<UITableViewDelegate, UITableViewDataSource>
-
+{
+    WHUCalendarPopView* _popView;
+}
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, copy) NSString *selectedIndex;
 
@@ -54,7 +61,9 @@ typedef NS_ENUM(NSInteger, DK_PickerViewType) {
     // Do any additional setup after loading the view, typically from a nib.
     
     [self.view addSubview:self.tableView];
-    
+    NSArray *array = @[@"1", @"2", @"3"];
+    NSEnumerator *enumerator = [array objectEnumerator];
+    NSLog(@"%@", enumerator);
 }
 
 
@@ -63,13 +72,17 @@ typedef NS_ENUM(NSInteger, DK_PickerViewType) {
     // Dispose of any resources that can be recreated.
 }
 
+- (void)eunm:(DK_PickerViewType)type {
+    
+}
+
 #pragma mark - UITableView DataSource
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 4;
+    return 7;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -94,6 +107,15 @@ typedef NS_ENUM(NSInteger, DK_PickerViewType) {
         case DK_PickerViewTypeLevelThree:
             title = @"三级联动";
             break;
+        case DK_PickerViewTypeDate:
+            title = @"日期选择";
+            break;
+        case DK_PickerViewTypeSystemDate:
+            title = @"系统日历";
+            break;
+        case DK_PickerViewTypeCalendarDate:
+            title = @"日历选择";
+            break;
     }
     cell.textLabel.text = title;
     cell.detailTextLabel.text = detail;
@@ -115,6 +137,15 @@ typedef NS_ENUM(NSInteger, DK_PickerViewType) {
             break;
         case DK_PickerViewTypeLevelThree:
             [self levelThreePickerViewClick:indexPath];
+            break;
+        case DK_PickerViewTypeDate:
+            [self datePickerViewClick:indexPath];
+            break;
+        case DK_PickerViewTypeSystemDate:
+            [self systemDatePickerViewClick:indexPath];
+            break;
+        case DK_PickerViewTypeCalendarDate:
+            [self calendarDatePickerViewClick:indexPath];
             break;
     }
 }
@@ -162,7 +193,35 @@ typedef NS_ENUM(NSInteger, DK_PickerViewType) {
     [levelOnePVC show];
 }
 
+- (void)datePickerViewClick:(NSIndexPath *)indexPath {
+    UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
+    CustomDatePickerView *datePVC = [[CustomDatePickerView alloc] initWithFrame:CGRectMake(0, 0, WIDTH, HEIGHT)];
+    [datePVC addButtonAction:^(NSString *data) {
+        cell.detailTextLabel.text = data;
+    }];
+    [datePVC show];
+    
+}
 
+- (void)systemDatePickerViewClick:(NSIndexPath *)indexPath {
+//    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"calshow:"]];
+    NSDictionary *dict = @{};
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"calshow:"] options:dict completionHandler:^(BOOL success) {}];
+}
+
+- (void)calendarDatePickerViewClick:(NSIndexPath *)indexPath {
+    UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
+    //备注：popView 直接创建不能显示, 必须申明属性.（原因暂时未知）
+    _popView = [[WHUCalendarPopView alloc] init];
+    _popView.onDateSelectBlk = ^(NSDate* date) {
+        NSDateFormatter *format = [[NSDateFormatter alloc] init];
+        [format setDateFormat:@"yyyy年MM月dd"];
+        NSString *dateString = [format stringFromDate:date];
+        NSLog(@"%@",dateString);
+        cell.detailTextLabel.text = dateString;
+    };
+    [_popView show];
+}
 
 
 @end
