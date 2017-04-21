@@ -130,10 +130,11 @@ typedef NS_ENUM(NSInteger, DK_PickerViewType) {
             [self levelOnePickerViewClick:indexPath];
             break;
         case DK_PickerViewTypeLevelTwo:
-            
+            [self alert];
             break;
         case DK_PickerViewTypeLevelThree:
-            [self levelThreePickerViewClick:indexPath];
+//            [self levelThreePickerViewClick:indexPath];
+            [self alert];
             break;
         case DK_PickerViewTypeDate:
             [self datePickerViewClick:indexPath];
@@ -212,7 +213,7 @@ typedef NS_ENUM(NSInteger, DK_PickerViewType) {
     _popView = [[WHUCalendarPopView alloc] init];
     _popView.onDateSelectBlk = ^(NSDate* date) {
         NSDateFormatter *format = [[NSDateFormatter alloc] init];
-        [format setDateFormat:@"yyyy年MM月dd"];
+        [format setDateFormat:@"yyyy年MM月dd日"];
         NSString *dateString = [format stringFromDate:date];
         NSLog(@"%@",dateString);
         cell.detailTextLabel.text = dateString;
@@ -220,5 +221,12 @@ typedef NS_ENUM(NSInteger, DK_PickerViewType) {
     [_popView show];
 }
 
+
+- (void)alert {
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"暂无此功能" message:@"" preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *act = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleCancel handler:nil];
+    [alert addAction:act];
+    [self presentViewController:alert animated:YES completion:nil];
+}
 
 @end

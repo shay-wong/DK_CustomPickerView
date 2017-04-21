@@ -82,13 +82,20 @@ const CGFloat CustomDatePVBtnViewHeight = 40.0f;
 }
 
 - (void)rightButtonClicked:(UIButton *)sender {
+    NSDate * date = [picker date];
+    //创建 Date 格式化工具
+    NSDateFormatter * formatter = [[NSDateFormatter alloc] init];
+    //格式日期格式化格式
+    [formatter setDateFormat:@"yyyy-MM-dd"];
+    //将日期转为格式化好的字符串
+    NSString * dataStr = [formatter stringFromDate:date];
 //    NSInteger dataIndex = [picker selectedRowInComponent:0];
 //    
 //    NSString *dataStr = [self.dataArrM objectAtIndex:dataIndex];
 //    
-//    if (self.buttonBlock) {
-//        self.buttonBlock(dataStr);
-//    }
+    if (self.buttonBlock) {
+        self.buttonBlock(dataStr);
+    }
     [self remove];
     
 }
