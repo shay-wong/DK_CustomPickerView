@@ -61,9 +61,6 @@ typedef NS_ENUM(NSInteger, DK_PickerViewType) {
     // Do any additional setup after loading the view, typically from a nib.
     
     [self.view addSubview:self.tableView];
-    NSArray *array = @[@"1", @"2", @"3"];
-    NSEnumerator *enumerator = [array objectEnumerator];
-    NSLog(@"%@", enumerator);
 }
 
 
