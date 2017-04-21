@@ -17,9 +17,11 @@
  *  @param city     市
  *  @param district 区
  */
-typedef void (^ButtonBlock) (NSString * province, NSString *city, NSString *district);
+typedef void (^ButtonBlock) (NSString * province, NSString *city, NSString *district, NSString *selectedIndex);
 
 @interface CustomCityPickerView : UIView
+
+@property (nonatomic, copy) NSString *selectedIndex;
 
 @property (nonatomic, copy) ButtonBlock buttonBlock;
 

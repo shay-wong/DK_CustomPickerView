@@ -3,7 +3,7 @@
 <plist version="1.0">
 <array>
 	<dict>
-		<key>北京市</key>
+		<key>北京</key>
 		<array>
 			<dict>
 				<key>北京市</key>
@@ -32,7 +32,7 @@
 		</array>
 	</dict>
 	<dict>
-		<key>天津市</key>
+		<key>天津</key>
 		<array>
 			<dict>
 				<key>天津市</key>
@@ -59,7 +59,7 @@
 		</array>
 	</dict>
 	<dict>
-		<key>上海市</key>
+		<key>上海</key>
 		<array>
 			<dict>
 				<key>上海市</key>
@@ -86,7 +86,7 @@
 		</array>
 	</dict>
 	<dict>
-		<key>重庆市</key>
+		<key>重庆</key>
 		<array>
 			<dict>
 				<key>重庆市</key>

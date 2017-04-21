@@ -26,8 +26,11 @@
     NSMutableArray *city;
     NSMutableArray *district;
     
+    
     NSString *selectedProvince;
 }
+
+@property (nonatomic, strong) NSMutableArray *selectedArr;
 
 @end
 
@@ -38,6 +41,27 @@ const CGFloat CustonCityPVHeight = 250.0f;
 const CGFloat CustonCityPVBtnViewWidth = 40.0f;
 const CGFloat CustonCityPVBtnViewHeight = 40.0f;
 
+- (NSMutableArray *)selectedArr {
+    if (!_selectedArr) {
+        _selectedArr = [NSMutableArray array];
+        [_selectedArr addObjectsFromArray:@[@"0",@"0",@"2"]];
+    }
+    return _selectedArr;
+}
+
+- (void)setSelectedIndex:(NSString *)selectedIndex {
+    _selectedIndex = selectedIndex;
+    
+    [self.selectedArr removeAllObjects];
+    [self.selectedArr addObjectsFromArray:[self.selectedIndex componentsSeparatedByString:@","]];
+    [self loadData];
+    for (NSInteger i = 0; i < self.selectedArr.count; i ++) {
+        NSInteger index = [self.selectedArr[i] integerValue];
+        [picker selectRow:index inComponent:i animated:NO];
+    }
+}
+
+
 - (instancetype)initWithFrame:(CGRect)frame {
     if (self = [super initWithFrame:frame]) {
         [self creatPickerView];
@@ -46,34 +70,46 @@ const CGFloat CustonCityPVBtnViewHeight = 40.0f;
     return self;
 }
 
+
+- (void)loadData {
+    [province removeAllObjects];
+    [city removeAllObjects];
+    [district removeAllObjects];
+    
+    NSInteger provinceIndex = [[self.selectedArr objectAtIndex:PROVINCE_COMPONENT] integerValue];
+    NSInteger cityIndex = [[self.selectedArr objectAtIndex:CITY_COMPONENT] integerValue];
+    NSInteger districtIndex = [[self.selectedArr objectAtIndex:DISTRICT_COMPONENT] integerValue];
+    
+    
+    //得到省份的数组
+    for (NSDictionary *dict in arrayM) {
+        [province addObjectsFromArray:dict.allKeys];
+    }
+    //得到市的数组
+    NSArray *array2 = arrayM[provinceIndex][province[provinceIndex]];
+    for (NSDictionary *dict in array2) {
+        [city addObjectsFromArray:dict.allKeys];
+    }
+    NSArray *array3 = [[arrayM[provinceIndex] objectForKey: province[provinceIndex]][cityIndex] objectForKey: city[cityIndex]];
+    //得到区的数组
+    for (NSString *str in array3) {
+        [district addObject:str];
+    }
+    selectedProvince = [province objectAtIndex: provinceIndex];
+}
+
 - (void)creatPickerView {
+    
     arrayM = [NSMutableArray array];
     province = [NSMutableArray array];
     city = [NSMutableArray array];
     district = [NSMutableArray array];
-    
+
+    //获取城市数据
     NSString *plistPath = [[NSBundle mainBundle] pathForResource:@"area" ofType:@"plist"];
     arrayM = [[NSMutableArray alloc] initWithContentsOfFile:plistPath];
-    NSLog(@"%@", arrayM);
-    //得到省份的model数组
-    for (NSDictionary *dict in arrayM) {
-        [province addObjectsFromArray:dict.allKeys];
-        //得到市的model的数组
-        NSArray *array2 = dict[province[0]];
-        for (NSDictionary *dict in array2) {
-            [city addObjectsFromArray:dict.allKeys];
-            NSArray *array3 = dict[city[0]];
-            //得到区的model的数组
-            for (NSString *str in array3) {
-                [district addObject:str];
-            }
-        }
-    }
     
-    
-    selectedProvince = [province objectAtIndex: 0];
-    
-    
+    [self loadData];
     
     view = [[UIView alloc] initWithFrame:CGRectMake(0, HEIGHT, WIDTH, CustonCityPVHeight)];
     view.backgroundColor = [UIColor whiteColor];
@@ -82,9 +118,7 @@ const CGFloat CustonCityPVBtnViewHeight = 40.0f;
     picker.dataSource = self;
     picker.delegate = self;
     picker.showsSelectionIndicator = YES;
-    [picker selectRow: 0 inComponent: 0 animated: YES];
     [view addSubview: picker];
-    
     
     btnView = [[UIView alloc] initWithFrame:CGRectMake(0, HEIGHT, WIDTH, CustonCityPVBtnViewHeight)];
     btnView.backgroundColor = [UIColor whiteColor];
@@ -110,6 +144,8 @@ const CGFloat CustonCityPVBtnViewHeight = 40.0f;
     [self addSubview:btnView];
     
 }
+
+
 
 #pragma mark- button clicked
 
@@ -139,7 +175,7 @@ const CGFloat CustonCityPVBtnViewHeight = 40.0f;
     }
     
     if (self.buttonBlock) {
-        self.buttonBlock(provinceStr, cityStr, districtStr);
+        self.buttonBlock(provinceStr, cityStr, districtStr, [NSString stringWithFormat:@"%ld,%ld,%ld", provinceIndex, cityIndex, districtIndex]);
     }
     [self remove];
     
@@ -205,8 +241,8 @@ const CGFloat CustonCityPVBtnViewHeight = 40.0f;
             }
         }
         
-        [picker selectRow:0 inComponent: CITY_COMPONENT animated: NO];
-        [picker selectRow:0 inComponent: DISTRICT_COMPONENT animated: NO];
+        [picker selectRow:0 inComponent: CITY_COMPONENT animated: YES];
+        [picker selectRow:0 inComponent: DISTRICT_COMPONENT animated: YES];
         [picker reloadComponent: CITY_COMPONENT];
         [picker reloadComponent: DISTRICT_COMPONENT];
         
@@ -219,7 +255,7 @@ const CGFloat CustonCityPVBtnViewHeight = 40.0f;
         for (NSString *str in [[arrayM[[province indexOfObject:selectedProvince]] objectForKey:selectedProvince][row] objectForKey:cityName]) {
             [district addObject:str];
         }
-        [picker selectRow:0 inComponent: DISTRICT_COMPONENT animated: NO];
+        [picker selectRow:0 inComponent: DISTRICT_COMPONENT animated: YES];
         [picker reloadComponent: DISTRICT_COMPONENT];
     }
     
@@ -247,7 +283,7 @@ const CGFloat CustonCityPVBtnViewHeight = 40.0f;
         [pickerLabel setFont:[UIFont systemFontOfSize:13]];
     }
     //调用上一个委托方法，获得要展示的title
-    pickerLabel.text=[self pickerView:pickerView titleForRow:row forComponent:component];
+    pickerLabel.text = [self pickerView:pickerView titleForRow:row forComponent:component];
     
     
     return pickerLabel;

@@ -23,6 +23,7 @@ typedef NS_ENUM(NSInteger, DK_PickerViewType) {
 @interface ViewController ()<UITableViewDelegate, UITableViewDataSource>
 
 @property (nonatomic, strong) UITableView *tableView;
+@property (nonatomic, copy) NSString *selectedIndex;
 
 @end
 
@@ -38,11 +39,22 @@ typedef NS_ENUM(NSInteger, DK_PickerViewType) {
     return _tableView;
 }
 
+
+
+- (NSString *)selectedIndex
+{
+    if (!_selectedIndex){
+        _selectedIndex = @"0,0,0";
+    }
+    return _selectedIndex;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     
     [self.view addSubview:self.tableView];
+    
 }
 
 
@@ -114,10 +126,12 @@ typedef NS_ENUM(NSInteger, DK_PickerViewType) {
 - (void)cityPickerViewClick:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
     CustomCityPickerView *cityPVC = [[CustomCityPickerView alloc] initWithFrame:CGRectMake(0, 0, WIDTH, HEIGHT)];
-    
-    [cityPVC addButtonAction:^(NSString *province, NSString *city, NSString *district) {
+    cityPVC.selectedIndex = self.selectedIndex;
+    __weak typeof(self) weakSelf = self;
+    [cityPVC addButtonAction:^(NSString *province, NSString *city, NSString *district, NSString *selectedIndex) {
         NSLog(@"%@ %@ %@", province, city, district);
         cell.detailTextLabel.text = [NSString stringWithFormat:@"%@%@%@", province, city, district];
+        weakSelf.selectedIndex = selectedIndex;
     }];
     [cityPVC show];
 }
