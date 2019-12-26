@@ -133,8 +133,8 @@ typedef NS_ENUM(NSInteger, DK_PickerViewType) {
             [self alert];
             break;
         case DK_PickerViewTypeLevelThree:
-//            [self levelThreePickerViewClick:indexPath];
-            [self alert];
+            [self levelThreePickerViewClick:indexPath];
+//            [self alert];
             break;
         case DK_PickerViewTypeDate:
             [self datePickerViewClick:indexPath];
